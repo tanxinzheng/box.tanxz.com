@@ -12,6 +12,6 @@
 
 ## 示例站点
 
-- 小康的网址收藏
+- 本人的导航站点
 
-  https://dh.xiaokang.me/
+  https://box.tanxz.com
