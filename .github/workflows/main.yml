@@ -45,14 +45,15 @@ jobs:
       - name: 6. 生成页面并压缩
         run: |
           hexo cl && hexo g && gulp
-      - name: 7. 部署页面
-        run: |
-          cd ./public
-          ls
-          git init
-          git config --global user.name '${{ secrets.GIT_USER }}' 
-          git config --global user.email '${{ secrets.GIT_MAIL }}'
-          git add .
-          git commit -m "Update"
-          git push --force --all https://${{ secrets.GH_TOKEN }}@${{ secrets.GH_REPO }}
-          git push --force --all https://${{ secrets.CODING_TOKEN }}@${{ secrets.CODING_REPO }}
+      - name: 7. 部署OSS
+      - uses: manyuanrong/setup-ossutil@v1.0
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+        with:
+           # endpoint 可以去oss控制台上查看
+           endpoint: "oss-cn-shanghai.aliyuncs.com"
+           # 使用我们之前配置在secrets里面的accesskeys来配置ossutil
+           access-key-id: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
+           access-key-secret: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
+      - name: deploy to OSS
+        run: ossutil cp public oss://box-tanxz-com/ -r -f -u
