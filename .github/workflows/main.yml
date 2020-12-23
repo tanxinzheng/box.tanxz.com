@@ -46,7 +46,7 @@ jobs:
         run: |
           hexo cl && hexo g && gulp
       - name: 7. 部署OSS
-      - uses: manyuanrong/setup-ossutil@v1.0
+        uses: manyuanrong/setup-ossutil@v1.0
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
         with:
