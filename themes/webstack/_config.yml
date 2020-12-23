@@ -70,6 +70,18 @@ menu:
       - name: 捷径直达
         icon: fas fa-space-shuttle
         config: 捷径直达
+  - name: 技术教程
+    icon: fas fa-book
+    submenu:
+      - name: 系统教程
+        icon: fas fa-book
+        config: 系统教程
+  - name: 开发工具
+    icon: fas fa-book
+    submenu:
+      - name: 转换工具
+        icon: fas fa-random
+        config: 转换工具
   - name: 网络调试工具
     icon: fas fa-network-wired
     submenu:
