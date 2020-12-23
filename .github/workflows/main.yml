@@ -45,7 +45,7 @@ jobs:
       - name: 6. 生成页面并压缩
         run: |
           hexo cl && hexo g && gulp
-      - name: 7. 部署OSS
+      - name: 7. 配置OSS Access Key
         uses: manyuanrong/setup-ossutil@v1.0
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
@@ -55,4 +55,5 @@ jobs:
            # 使用我们之前配置在secrets里面的accesskeys来配置ossutil
            access-key-id: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
            access-key-secret: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
+      - name: 8. 部署到OSS
         run: ossutil cp public oss://box-tanxz-com/ -r -f -u
