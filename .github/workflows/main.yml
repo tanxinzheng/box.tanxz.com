@@ -55,5 +55,4 @@ jobs:
            # 使用我们之前配置在secrets里面的accesskeys来配置ossutil
            access-key-id: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
            access-key-secret: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
-      - name: deploy to OSS
         run: ossutil cp public oss://box-tanxz-com/ -r -f -u
